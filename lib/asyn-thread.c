@@ -391,7 +391,8 @@ static void destroy_async_data(struct Curl_easy *data)
 #endif
 
 #ifdef USE_HTTPSRR_ARES
-    ares_destroy(data->state.async.tdata->channel);
+    if(data->state.async.tdata->channel)
+      ares_destroy(data->state.async.tdata->channel);
 #endif
     /*
      * if the thread is still blocking in the resolve syscall, detach it and

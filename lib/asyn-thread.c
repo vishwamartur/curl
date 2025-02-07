@@ -499,7 +499,7 @@ static bool init_resolve_thread(struct Curl_easy *data,
   }
 #ifdef USE_HTTPSRR_ARES
   if(resolve_httpsrr(data, asp))
-    goto err_exit;
+    infof(data, "Failed HTTPS RR operation");
 #endif
   return TRUE;
 
